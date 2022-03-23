@@ -1,0 +1,121 @@
+/*
+	java程序中最基本的组成单位是类						
+	类的定义格式：
+		public class 类名{
+			
+		}
+	这是我定义的HelloWorld类
+*/
+public class HelloWorld {
+/*
+		这是main方法
+		main方法是程序的入口方法，代码的执行是从main方法开始的
+*/
+		public static void main(String[] args) {
+//		这是输出语句，""里面的内容是可以改变的
+	System.out.println("HelloWorld");
+                 } 
+}
+
+
+
+/*
+		标识符的定义规则：
+	1、由数字、字母、下划线（_）、美元符（$）组成
+	2、不能以数字开头
+	3、不能是关键字
+	4、区分大小写
+	
+			常见命名约定
+		小驼峰命名法（针对方法、变量）
+	1、标识符是一个单词的时候，是字母小写   ：name；
+	2、标识符由多个单词组成的时候，第一个单词首字母小写，其他单词首字母大写 ：firstName；
+		大驼峰命名法（针对类）
+	1、标识符是一个单词的时候，是字母大写: Student
+	2、标识符由多个单词组成的时候，每个单词首字母大写： GoodStudent、HelloWorlld
+*/
+public class bsf {
+	public static void main(String[] args){
+		
+		
+		int a = 10;
+		System.out.println(a);
+	}
+}
+
+
+
+
+/*
+	变量定义格式:
+		数据类型 变量名 = 变量值；
+	
+	基本数据类型：
+		byte,short,int,long,float,double,char,boolean
+	
+	变量的使用：
+		取值格式： 变量名
+		
+		修改值格式：变量名 = 变量值；
+*/
+public class abc {
+	public	static void main(String[] args){
+		//定义变量
+		int a = 2;
+		
+		//输出变量
+		System.out.println(a);
+		
+		//修改变量
+		a = 20;
+		System.out.println(a);
+	} 
+}
+
+
+
+
+/*
+	变量使用的注意事项：
+		1： 名字不能重复；
+		2： 变量未赋值，不能使用；
+		3： long类型的变量定义的时候，为防止整数过大，后面要加L（整数默认是int类型，结尾加L说明是long类型）；
+		4： float类型的变量定义的时候，为了防止类型不兼容，后面要加F（浮点数默认是double类型，结尾加F说明是float类型）；
+*/
+public class asd {
+	public static void main(String[] args){
+		//定义byte类型的变量
+		byte b = 10;
+		System.out.println(b);
+		
+		//定义short类型的变量
+		short s = 100;
+		System.out.println(s);
+		
+		//定义int类型的变量
+		int i = 200;
+		System.out.println(i);
+		
+		//定义double类型的变量
+		double d = 2000;
+		System.out.println(d);
+		
+		//定义char类型的变量
+		char c = 65535;
+		System.out.println(c);
+		
+		//定义boolean类型的变量
+		boolean bb = true;
+		System.out.println(bb);
+		
+		//定义long类型的变量
+		long l = 10000000000L;
+		System.out.println(l);
+		
+		//定义float类型的变量
+		float f = 13.14F;
+		System.out.println(f);
+ 	}
+}
+
+
