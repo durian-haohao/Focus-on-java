@@ -69,5 +69,5 @@ public class ssysf {
 		  等级顺序byte、short、char→int→long→float→double     
 				
 				例如： char ch = i+c         -----不兼容的类型（自动提升为int类型）
-					   int = 10 + 3.14       -----不兼容的类型（自动提升为double类型）
+				       int d = 10 + 3.14       -----不兼容的类型（自动提升为double类型）
 */
