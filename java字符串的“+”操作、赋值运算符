@@ -1,0 +1,40 @@
+/*
+	字符串的“+”操作（字符串的拼接）
+	输出结果从左向右（先计算的计算先拼接的拼接）
+*/
+public class zfc{
+	public static void main (String[] args){
+		System.out.println("it"+"he");           //ithe
+		System.out.println("it"+666);        	//it666
+		System.out.println(666+"it");			//666it
+		System.out.println("黑马"+1+99);		//黑马199
+		System.out.println(1+99+"黑马");		//100黑马
+		
+
+
+---------------------------------------------------------------------------------------------------------------
+
+		/*
+			赋值运算符
+			扩展的赋值运算符隐含着类型转换（注意强制转换）
+			+=	-=	*=	/=	%=
+		*/
+    public class zfc{
+	    public static void main (String[] args){
+		int i =10;    //念法：把10赋值给int类型的变量i
+		System.out.println("i:"+i);          //  i:10
+		
+		//  +=   把左边和右边的数据相加，然后赋值给左边(与i = i+20 只是结果等价)
+		i+=20;
+		System.out.println("i:"+i);          //  i:30
+		
+		short s=10;
+		s +=20;
+		System.out.println("s:"+s);			// s:30
+		short t = 10;
+		t =(short )(t+20);		//自动转为int类型，需要强制转换成short类型
+		System.out.println("s:"+s);			// s:30
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
