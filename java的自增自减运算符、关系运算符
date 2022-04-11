@@ -1,0 +1,61 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+/*
+	自增自减运算符
+*/
+public class zzzj{
+	public static void main(String[] args){
+		int i =10;
+		System.out.println("i+"+i);		//i:10
+		// 的单独使用(i++与++i效果一样)
+		i++;
+		System.out.println("i:"+i);		//i:11
+		++i;
+		System.out.println("i+"+i);    //i:12
+		
+		//参与操作使用（i初始值为12）
+		int j =i++;										//i先把它赋值给j（12），然后i等于其本身再自增（13）
+		System.out.println("i:"+i);		//i=13
+		System.out.println("j:"+j);		//j=12
+		
+		//(i初始值为13)
+		int m =++i;										//先进性++操作i=14，再把i（14）赋值给m（14）
+		System.out.println("i:"+i);		//i=14
+		System.out.println("m:"+m);		//m=14
+	}
+}
+
+
+		
+    
+    ------------------------------------------------------------------------------------------------------------------------------------------
+		
+		/*
+			关系运算符
+		*/
+    public class zzzj{
+	public static void main(String[] args){
+		int a=10;
+		int b=20;
+		int c=10;
+		// ==
+		System.out.println(a==b);		//false
+		System.out.println(a==c);		//true
+		//!=
+		System.out.println(a!=b);		//true
+		System.out.println(a!=c);		//false
+		//>
+		System.out.println(a>b);		//false
+		System.out.println(a>c);		//false
+		//>=
+		System.out.println(a>=b);		//false
+		System.out.println(a>=c);		//true
+		//<
+		System.out.println(a<b);		//true
+		System.out.println(a<c);		//false
+		//<=
+		System.out.println(a<=b);		//true
+		System.out.println(a<=c);		//true
+	}
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------
