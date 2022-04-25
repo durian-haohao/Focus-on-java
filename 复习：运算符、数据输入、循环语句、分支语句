@@ -1,0 +1,284 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+	逻辑运算符
+	&
+	|
+	^
+	!
+	短路逻辑运算符&&    ||
+*/
+public class fuxi{
+	public static void main(String[] args){
+		int j=20,i=10,k=30;
+		System.out.println((i<j)&(i>k));    //false
+		
+		
+		System.out.println((i++>100)&&(j++>100));		//i++>100为假时j++>100不执行即i=i++;j=j;                 若为&运算符则全部执行
+		System.out.println("i:"+i);					//i:11
+		System.out.println("j:"+j);					//j:20
+		
+		System.out.println((i++<100)||(j++>100));		//i++>100为真时j++>100不执行即i=i++;j=j;                 若为|运算符则全部执行
+		System.out.println("i:"+i);					//i:12
+		System.out.println("j:"+j);					//j:20
+	}
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+	三元运算符
+	关系表达式？表达式1：表达式2
+*/
+
+/*
+	两只老虎：
+			一只为180kg，另一只为200kg，判断题中是否相等
+*/
+public class fuxi{
+	public static void main(String [] args){
+		int w1=180,w2=200;
+		boolean b=w1==w2?true:false;
+		System.out.println("b:"+b);					//b:false
+		
+		/*
+			三个和尚：
+					身高分别为150cm，210cm,165cm,求最高的
+		*/
+		int h1=150,h2=210,h3=165;
+		int t=h1>h2?h1:h2;
+		int maxh=t>h3?t:h3;
+		System.out.println("maxh:"+maxh);			//maxh:210
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+	数据输入
+	1、导包
+			import java.util.Scanner;
+	2、创建对象
+			Scanner sc=new Scanner(System.in);
+	3、接收数据
+			int i=sc.nextInt();
+*/
+/*
+	三个和尚：
+			输入三个和尚的身高求最高的值
+*/
+import java.util.Scanner;
+public class fuxi{
+	public static void main(String [] args){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("请输入三个和尚的身高");
+		int x=sc.nextInt();
+		int y=sc.nextInt();
+		int z=sc.nextInt();
+		int t=x>y?x:y;
+		int max=t>z?t:z;
+		System.out.println("max："+max);
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+	分支语句的if语句
+*/
+/*
+	输入1-7，在控制台输出对应的星期
+*/
+import java.util.Scanner;
+public class fuxi{
+	public static void main(String [] args){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("请输入数字1-7");
+		int week=sc.nextInt();
+		if(week==1)
+			System.out.println("星期一");
+		else
+			if(week==2)
+				System.out.println("星期二");
+			else
+				if(week==3)
+					System.out.println("星期三");
+				else
+					if(week==4)
+						System.out.println("星期四");
+					else
+						if(week==5)
+							System.out.println("星期五");
+						else
+							if(week==6)
+							    System.out.println("星期");
+							else
+								if(week==7)
+									System.out.println("星期七");
+								else
+									System.out.println("输入的数据有误");
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+	分支语句的switch语句
+*/
+/*
+	输入1-7，在控制台输出对应的星期
+*/
+import java.util.Scanner;
+public class fuxi{
+	public static void main(String [] args){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("请输入数字1-7");
+		int week=sc.nextInt();
+		switch(week){
+			case 1:
+			System.out.println("星期一");
+			break;
+			case 2:
+			System.out.println("星期二");
+			break;
+			case 3:
+			System.out.println("星期三");
+			break;
+			case 4:
+			System.out.println("星期四");
+			break;
+			case 5:
+			System.out.println("星期五");
+			break;
+			case 6:
+			System.out.println("星期六");
+			break;
+			case 7:
+			System.out.println("星期日");
+			break;
+			default:
+			System.out.println("输入的数据有误");
+			break;
+		}
+		
+		/*	
+			case穿透
+					
+		*/
+		switch(1){
+			case 1:
+			System.out.println("星期一");				//无break结束语句，则继续往下不进行判断的执行，直至遇到break或者执行完所有语句
+			case 2:			
+			System.out.println("星期二");			
+			break;										//星期一
+													//星期二
+			
+		}
+		
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+	for循环语句
+*/
+/*
+	求1-5之间的数据和，并输出
+*/
+
+public class fuxi{
+	public static void main(String [] args){
+		int sum=0;
+		for(int i=1;i<=5;i++){
+			sum +=i;
+		}	
+		System.out.println("sum:"+sum);			//15
+		
+/*
+	求1-100之间偶数和，并输出
+*/
+		int sum2=0;
+		for(int j=1;j<=100;j++){
+			if(j%2==0){
+				sum2 = sum2+j;
+			}
+		}
+		System.out.println("sum2:"+sum2);		//2550
+		
+/*
+	水仙花：
+			输出100-999水仙花是哪些，并且计算出总数（各位、十位、百位分别三次方在求和=原数）
+*/
+		int count=0;
+		for(int a=100;a<1000;a++){
+			int ge=a%10;
+			int shi=a/10%10;
+			int bai=a/100;
+			if(ge*ge*ge+shi*shi*shi+bai*bai*bai==a){
+				System.out.println(a);
+				count++;
+			}
+		}
+		System.out.println("count:"+count);
+
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+/*
+	while循环语句
+*/
+/*
+	珠穆朗玛峰：
+			该峰高度884430毫米，加入有一张厚度为0.1毫米纸张，折叠多少次折叠到此高度
+*/
+
+public class fuxi{
+	public static void main(String [] args){
+		int count=0;
+		double paper=0.1;
+		while(paper<=8844430){
+			paper=paper*2;
+			count++;
+		}
+		System.out.println("需要折叠"+count+"次");   //需要折叠27次
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+/*
+	for、while、do...while三种循环区别
+*/
+/*
+		for、while先判断后执行
+		do...while先执行一次再判断再执行
+*/
+public class fuxi{
+	public static void main(String [] args){
+		for(int i=1;i<=3;i++){
+			System.out.println("java");
+		}
+		// 输入System.out.println(i);出现报错，因为i属于if循环结构，for循环结束后不能使用
+		
+		
+		int j=1;
+		while(j<3){
+			System.out.println("java");
+			j++;
+		}
+		System.out.println(j);			//结果为：3   并不是1
+	}
+}
+		
+		
+/*
+	死循环
+*/		
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
