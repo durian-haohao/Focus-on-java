@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class fangfa{
+    public static void main(String[] args) {
+        isEvenNumber();
+        isEvenNumber2(4,5);
+    }
+
+    public static void isEvenNumber() {
+        Scanner sc=new Scanner(System.in);
+        int x1=sc.nextInt();
+        int x2=sc.nextInt();
+        if(x1>x2){
+            System.out.println("max:"+x1);
+        }else {
+            System.out.println("max:"+x2);
+        }
+    }
+    //带参数方法的定义和调用
+    public static void isEvenNumber2(int number1,int number2){
+        if(number1%2==0){
+            System.out.println(true);       //true
+        }else {
+            System.out.println(false);          
+        }
+        if(number2%2==0){
+            System.out.println(true);
+        }else System.out.println(false);    //false
+
+    }
+
+}
