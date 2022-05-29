@@ -1,0 +1,74 @@
+//方法
+public class fangfa {
+    public static void main(String[] args) {
+        //不带参数的方法调用
+        int m;
+        fangfa1();
+        //带参数的方法调用
+        m=fangfa2(100,200);
+        System.out.println(m);          //200
+        //方法重载练习
+        System.out.println(fangfa3(10,20));         
+        System.out.println(fangfa3((byte)10,(byte)20));
+        System.out.println(fangfa3((short)10,(short)20));
+        System.out.println(fanggfa3(10L,20L));
+
+        //方法的参数传递
+        //1、值传
+        int number =100;
+        System.out.println("方法调用前数值："+number);  //方法调用前数值：100
+        change(number);
+        System.out.println("方法调用后数值："+number);  //方法调用后数值:100
+        //2、址传
+        int[] arr={10,20,30};
+        System.out.println("方法被调用前数值："+arr[1]);//方法被调用前数值:20
+        change2(arr);
+        System.out.println("方法被调用后数值："+arr[2]);//方法被调用后数值:200
+
+    }
+    public static void fangfa1(){
+        int a=10;
+        int b=20;
+        if(a>=b){
+            System.out.println(a);
+        }else{
+            System.out.println(b);
+        }
+    }
+    public static int fangfa2(int c,int d){
+        int z;
+        z=c>d?c:d;
+        return z;
+    }
+
+    //int
+    public static boolean fangfa3(int e,int f){
+        System.out.println("int");
+        return e==f;
+    }
+    //byte
+    public static boolean fanggfa3(byte e,byte f){
+        System.out.println("byte");
+        return e==f;
+    }
+    //short
+    public static boolean fanggfa3(short e,short f){
+        System.out.println("short");
+        return e==f;
+    }
+    //long
+    public static boolean fanggfa3(long e,long f){
+        System.out.println("long");
+        return e==f;
+    }
+
+
+    //方法的参数传递（值传）
+    public static void change(int number){
+        number =200;
+    }
+    //方法的参数传递（址传）
+    public static void change2(int[] arr){
+        arr[1]=200;
+    }
+}
