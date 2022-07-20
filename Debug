@@ -1,0 +1,64 @@
+Debug
+1、查看程序的执行流程
+2、追踪程序执行过程来调试程序
+
+操作流程
+1、Debug调试，即断点调试（断点其实是个标记）
+如何加断点
+如何运行加了断点的程序
+看哪里              注意：Console窗口是程序执行过程中的结果展示
+点哪里             //Step Into（F7）这个箭头、点Stop结束
+如何删除断点  //点击鼠标左键
+
+
+-------------------------------------------------------------------------
+常见问题2---查看偶数求和
+public class xuexi {
+    public static void main(String[] args) {
+        //定义偶数求和变量
+        int sum=0;
+
+        //循环求偶数和
+        for(int i=1;i<=10;i++){
+            if(i%2==0){
+                sum +=i;
+            }
+        }
+
+        //输出结果
+        System.out.println("1-10之间的偶数和是："+sum);
+
+    }
+
+}
+
+
+
+
+-------------------------------------------------------------------------
+//常见问题2
+//导包
+import java.sql.SQLOutput;
+import  java.util.Scanner;
+public class java {
+    public static void main(String[] args) {
+        //创建对象
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入第一个整数：");  //控制台不输入的话，debug不能向下执行------如果有数据来自键盘输入一定要输入数据，否则不能继续往下看
+        //接收数据
+        int a=sc.nextInt();
+        System.out.println("请输入第二个整数：");
+        int b=sc.nextInt();
+        //调用方法
+        int max=getMax(a,b);
+        //输出结果
+        System.out.println("最大的数是："+max);
+    }
+    public static int getMax(int a,int b){
+        if(a>b){
+            return a;
+        }else {
+            return b;
+        }
+    }
+}
