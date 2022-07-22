@@ -1,0 +1,244 @@
+1、减肥计划if版
+import java.util.Scanner;
+public class xuexi {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入星期数");
+        int a=sc.nextInt();
+        if (a>3||a<1){
+            System.out.println("输入的星期数有误");
+        }else if (a==1){
+            System.out.println("篮球🏀");
+        }else if (a==2){
+            System.out.println("跳绳");
+        }else if (a==3){
+            System.out.println("跑步");
+        }
+
+    }
+}
+
+--------------------------------------------------------------------
+2、减肥计划switch版
+import java.util.Scanner;
+public class xuexi {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入星期数");
+        int a=sc.nextInt();
+     switch (a){
+         case 1:
+             System.out.println("篮球");
+             break;
+         case 2:
+             System.out.println("跳绳");
+             break;
+         case 3:
+             System.out.println("跑步");
+             break;
+         default:
+             System.out.println("输入的星期数有误");
+             break;
+     }
+    }
+}
+
+-------------------------------------------------------------------------
+3、1-100中的所有逢七过（for、if）
+public class xuexi {
+    public static void main(String[] args) {
+        for (int i=1;i<=100;i++){
+            if(i%7==0||i/10==7||i%10==7){
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+-------------------------------------------------------------------------
+4、不死神兔
+有一对兔子，从出生后第三个月起每个月都生一对兔子，小兔子长到第三个月后每个月又生一对兔子，假如兔子不死，问第二十个月的兔子对数是多少？（6765对）
+
+法一：求出每个月增加的对数，然后求和
+public class xuexi {
+    public static void main(String[] args) {
+        int[] arr = new int[20];
+        arr[0] = 1;
+        arr[1] = 0;
+        int sum = 0;
+        for (int a = 2; a < 20; a++) {
+            arr[a] = arr[a - 2] + arr[a - 1];
+        }
+        for (int b=0;b<20;b++){
+            sum =sum+arr[b];
+        }
+        System.out.println(sum);
+    }
+}
+
+法二：求从第1个月求到第20月，即每个月的总对数
+public class xuexi {
+    public static void main(String[] args) {
+        int[] arr = new int[20];
+        arr[0] = 1;
+        arr[1] = 1;
+        for (int a = 2; a < 20; a++) {
+            arr[a] = arr[a - 2] + arr[a - 1];
+        }
+        System.out.println(arr[19]);
+    }
+}
+-------------------------------------------------------------------------
+
+5、百钱百鸡
+鸡翁一值钱五，鸡母一值钱三，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何？
+（0,25,75
+   4,18,78
+   8,11,81
+   12,4,84）
+public class xuexi {
+    public static void main(String[] args) {
+        int z;
+        for (int x=0;x<=20;x++){
+            for (int y=0;y<=33;y++){
+                z=100-x-y;
+                if(5*x+3*y+z/3==100&&z%3==0){
+                    System.out.println(x+","+y+","+z);
+                }
+            }
+        }
+    }
+}
+可以写成：
+public class xuexi {
+    public static void main(String[] args) {
+        for (int x=0;x<=20;x++){
+            for (int y=0;y<=33;y++){
+                for (int z=0;z<=100;z++){
+                    if(5*x+3*y+z/3==100&&x+y+z==100&&z%3==0){
+                        System.out.println(x+","+y+","+z);
+                    }
+                }
+            }
+        }
+    }
+}
+
+-------------------------------------------------------------------------
+6、数组内容相同
+设计一个方法，比较两个数组的内容是否相同
+（长度、内容）
+public class Test01 {
+    public static void main(String[] args) {
+        int[] arr1={11,22,33,44,55};
+        int[] arr2={11,22,33,44,55};
+        boolean a=compare(arr1,arr2);
+        System.out.println(a);
+    }
+    public static boolean compare(int[] arr,int[] arr2){
+        if(arr.length!=arr2.length){
+            return false;
+        }
+        for (int i=0;i<arr.length;i++){
+            if (arr[i]!=arr2[i]){
+                return  false;
+            }
+        }
+        return true;
+    }
+}
+
+-------------------------------------------------------------------------
+7、数组查找
+
+import java.util.Scanner;
+
+//数组查找（输入数据查找该数据的索引）
+public class Text02 {
+    public static void main(String[] args) {
+        int[] arr={11,22,33,44,55,66};
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入要查找的数据");
+        int a=sc.nextInt();
+        int number=getIndex(arr,a);
+        System.out.println(number);
+    }
+    public static int getIndex(int[] arr,int a){
+        int index=0;
+        for (int x=0;x<arr.length;x++){
+            if (a==arr[x]){
+                index=x;
+                break;
+            }
+        }
+        return index;
+    }
+}
+
+-------------------------------------------------------------------------
+8、数组反转
+public class Text03 {
+    public static void main(String[] args) {
+        int[] arr={11,22,33,44,55};
+        for (int start=0,end=arr.length-1;start<=end;start++,end--){     //※※※
+            int temp;
+            temp =arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+        }
+        for (int x=0;x<arr.length;x++){
+            System.out.println(arr[x]);
+        }
+    }
+}
+
+-------------------------------------------------------------------------
+
+9、评委打分（去掉最高最低分再求平均分）
+import java.util.Scanner;
+
+public class Text04 {
+    public static void main(String[] args) {
+        int[] arr=new int[6];
+        Scanner sc=new Scanner(System.in);
+        for (int x=0;x<arr.length;x++){
+             arr[x]=sc.nextInt();
+        }
+        int max=maxnumber(arr);
+        int min=minnumber(arr);
+        int total=totalScore(arr);
+        System.out.println("平均分为："+(total-max-min)/4);
+
+
+    }
+    //找出最高分
+    public  static int maxnumber(int[] arr){
+        int a=0;
+        for (int y=0;y<arr.length;y++){
+            if (a<arr[y]){
+                a=arr[y];
+            }
+        }
+        return a;
+    }
+    //找出最低分
+    public static int minnumber(int[] arr){
+        int b=arr[0];
+        for (int z=1;z<arr.length;z++){
+            if(b>arr[z]){
+                b=arr[z];
+            }
+        }
+        return b;
+    }
+    //总分
+    public static int totalScore(int[] arr){
+        int num=0;
+        for (int m=0;m<arr.length;m++){
+            num +=arr[m];
+        }
+        return num;
+    }
+}
+
+-------------------------------------------------------------------------
