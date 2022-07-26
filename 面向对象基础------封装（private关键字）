@@ -1,0 +1,52 @@
+/*
+    private修改所需值得范围，以免出现年龄为负值等等
+    set赋值、get取值
+    二者写法：  setAge(赋的值);         System.out.println(s.getAge());
+    get得到的值是在set筛选过后的值
+    注意get有返回值，相应修改返回类型
+*/
+
+//类
+public class private_Student {
+    //成员变量
+    String name;
+
+    private int age;
+    //设置age 参数
+
+    public void setAge(int a) {                    //age首字母大写
+        if (a<=0||a>120){
+            System.out.println("你输入的数据有误");   //如果赋值失败（输入的数据有误）则输出age的值为0（默认值）
+        }else {
+            age =a;
+        }
+    }
+    public int getAge(){                         //age首字母大写
+        return age;
+    }
+    //成员方法
+    public void show(){
+        System.out.println(name+","+age);
+    }
+}
+
+
+
+
+
+//对象
+public class private_StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        private_Student s=new private_Student();
+
+        //给成员变量赋值
+        s.name="林青霞";
+        s.setAge(-30);
+        //getAge获取值
+        System.out.println(s.getAge());
+        //使用成员方法
+        s.show();
+
+    }
+}
