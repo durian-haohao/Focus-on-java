@@ -1,0 +1,49 @@
+/*
+    this关键字------解决局部变量隐藏成员变量（局部变量和成员变量重名）
+ */
+
+ //类
+public class this_Student {
+    //成员变量
+    private String name;
+    private int age;
+
+    //name
+    public void setName(String name){       //name为局部变量
+//        name =name;                       //此时两个name都是局部变量中的name，输出为null
+        this.name=name;                     //this修饰的为成员变量（name全局变量），不用this修饰的为局部变量（形参）
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    //age
+    public void setAge(int a) {
+        age = a;
+    }
+    public int getAge(){
+        return age;
+    }
+
+    //成员方法
+    public void show(){
+        System.out.println(name+","+age);
+    }
+}
+
+
+//对象
+public class this_StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        this_Student s=new this_Student();
+
+        //使用set方法给成员变量赋值
+        s.setName("林青霞");
+        s.setAge(30);
+
+        //使用成员方法
+        s.show();
+    }
+}
