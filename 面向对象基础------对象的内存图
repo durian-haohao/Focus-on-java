@@ -1,0 +1,72 @@
+/*  
+    创建类
+*/
+package com.itheima_02;
+
+public class Student {
+    //成员变量
+    String name;
+    int age;
+    //成员方法
+    public void study(){
+        System.out.println("好好学习，天天向上");
+    }
+    public void doHomework(){
+        System.out.println("键盘敲烂，月薪过万");
+    }
+}
+
+
+
+
+/*
+    对象的使用
+*/
+package com.itheima_02;
+
+//1、单个对象
+public class StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        Student s=new Student();
+        System.out.println(s);
+        //使用成员变量
+        System.out.println(s.name+","+s.age);
+        s.name="罗晋";
+        s.age=40;
+        System.out.println(s.name+","+s.age);
+        //使用成员方法
+        s.study();
+        s.doHomework();
+
+        //创建第二个对象并使用
+        Student s2=new Student();
+        System.out.println(s2);
+        System.out.println(s2.name+","+s2.age);
+        s2.name="唐嫣";
+        s2.age=38;
+        System.out.println(s2.name+","+s2.age);
+        s2.study();
+        s2.doHomework();
+
+
+
+//2、多个对象指向相同
+        //创建对象
+        Student s3=new Student();
+        //使用成员变量
+        s3.name="罗晋";
+        s3.age=40;
+        System.out.println(s3.name+","+s3.age);    //罗晋，40
+        //把第一个对象的地址赋值给第二个对象
+        Student s4=s3;
+        s4.name="黑马";
+        s4.age=10;
+        System.out.println(s3.name+","+s3.age);    //黑马，10
+        System.out.println(s4.name+","+s4.age);    //黑马，10
+
+
+
+    }
+}
+
