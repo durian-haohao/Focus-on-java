@@ -1,0 +1,135 @@
+/*
+    标准类制作：
+        1、成员变量
+            使用private修饰
+        2、构造方法
+            提供一个无参构造方法
+            提供一个带多个参数的构造方法
+        3、成员方法
+            提供每个成员变量对应的setXxx/getXxx
+            提供一个显示对象信息的show()
+        4、创建对象并为其成员变量赋值的两种形式
+            无参构造方法创建对象后使用setXxx()赋值
+            有参构造方法直接创建带有属性值的对象
+ */
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------
+ //定义与应用
+ /*
+    学生类
+
+    方法：某个东西后加一个小括号
+    构造方法：（类名加一个小括号）
+        概念：特殊的一种方法
+        作用：创建对象
+        功能：完成对象的初始化
+
+    格式：
+        修饰符 类名（参数）{
+
+        }
+
+        修饰符一般用：public
+ */
+public class define_Student {
+    //成员变量
+    private String name;
+    private int age;
+
+    //构造方法
+    public define_Student() {
+        System.out.println("无参构造方法");
+    }
+
+    //成员方法
+    public void show() {
+        System.out.println(name + "," + age);
+    }
+}
+
+
+
+
+
+
+
+/*
+    测试类
+ */
+public class define_StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        define_Student s = new define_Student();
+        s.show();
+    }
+
+}
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ //注意事项
+ /*
+    构造方法的注意事项：
+        1、构造方法的创建
+            * 如果没有定义构造方法，系统将给出一个默认的无参数构造方法
+            * 如果定义了构造方法，系统将不再提供默认的构造方法
+        2、构造方法的重载
+            * 如果自定义了一个的带参数的构造方法，还要使用无参数构造方法，就必须再写一个无参数构造方法
+            * 建议：无论是否使用，都手工书写无参数构造方法
+ */
+public class attention_Student {
+    //成员变量
+    private String name;
+    private int age;
+
+    //构造方法（以下为方法重载）
+    public attention_Student(){
+        System.out.println("无参数构造");
+    }
+
+    public attention_Student(String name){
+        this.name=name;
+    }
+
+    public attention_Student(int age){
+        this.age=age;
+    }
+
+    public attention_Student(String name,int age){
+        this.name=name;
+        this.age=age;
+    }
+
+    //成员方法
+    public void show(){
+        System.out.println(name+","+age);
+    }
+}
+
+
+
+
+
+
+public class attention_StudentDemo {
+    public static void main(String[] args) {
+        //创建对象
+        attention_Student s1=new attention_Student();
+        s1.show();
+
+        //public attention_Student(String name)
+        attention_Student s2=new attention_Student("林青霞");
+        s2.show();
+
+        //public attention_Student(int age)
+        attention_Student s3=new attention_Student(25);
+        s3.show();
+
+        //public attention_Student(String name,int age)
+        attention_Student s4=new attention_Student("林青霞",25);
+        s4.show();
+    }
+}
+ --------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
