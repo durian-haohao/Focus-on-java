@@ -1,0 +1,85 @@
+/*
+    String的软件包为java.lang不需要导包
+    String类代表字符串（"abc"双引号字符串）
+    字符串不变：它们的值创建后不能更改，但是能够共享
+    字符串效果上相当于字符数组（char[]）,但是底层原理是字节数组（byte[]）
+ */
+
+
+/*
+    String构造方法(就是定义一个字符变量)
+        public String()             创建一个空白字符串对象，不含有任何内容
+        public String(char[] chs)   根据字符数组的内容，来创建字符串对象
+        public String(byte[] bys)   根据字节数组的内容，来创建字符串对象(输入数字，输出相应的字符串)
+        String s="abc"              直接赋值
+        推荐直接赋值的方法
+ */
+public class Text_02_String {
+    public static void main(String[] args) {
+        //        public String()             创建一个空白字符串对象，不含有任何内容
+        String s1=new String();
+        System.out.println("s1:"+s1);   //s1:
+
+        //        public String(char[] chs)   根据字符数组的内容，来创建字符串对象
+        char[] chs={'a','b','c'};
+        String s2=new String(chs);
+        System.out.println("s2:"+s2);   //s2:abc
+
+        //        public String(byte[] bys)   根据字节数组的内容，来创建字符串对象
+        byte[] bys={97,98,99};
+        String s3=new String(bys);
+        System.out.println("s3:"+s3);   //s3:abc
+
+        //        String s="abc"              直接赋值
+        String s4="abc";
+        System.out.println("s4:"+s4);   //s4:abc
+        System.out.println("----------");
+
+
+
+        /*
+            String对象的特点
+
+         */
+        //构造方法得到对象
+        char[] chs1={'a','b','c'};
+        String c1=new String(chs1);
+        String c2=new String(chs1);
+        System.out.println(c1==c2);     //false（c1、c2不同地址但都指向chs1的地址）
+        //直接赋值的方法得到对象
+        String c3="abc";
+        String c4="abc";
+        System.out.println(c3==c4);    //true(地址值一样)
+        System.out.println("----------");
+
+
+        /*
+            字符串的比较
+                1、使用==比较
+                    基本类型：比较的是数据值是否相同
+                    引用类型：比较的是地址值是否相同
+                2、内容比较
+                    比较内容是否相同是通过一个方法来实现的，这个方法叫做：equals()
+                    public boolean equals(Object anObject):将此字符串与指定对象进行比较。由于比较的是字符串对象，所以参数直接传递字符串
+         */
+        //构造方法的得到的对象
+        char[] chs2={'a','b','c'};
+        String x1=new String(chs2);
+        String x2=new String(chs2);
+
+        //直接赋值得到的对象
+        String x3="abc";
+        String x4="abc";
+
+        //比较字符串的地址是否相同
+        System.out.println(x1==x2);
+        System.out.println(x3==x4);
+        System.out.println("----------");
+        //比较字符串的内容是否相同
+        System.out.println(x1.equals(x2));
+        System.out.println(x1.equals(x3));
+        System.out.println(x2.equals(x3));
+        System.out.println(x3.equals(x4));
+
+    }
+}
