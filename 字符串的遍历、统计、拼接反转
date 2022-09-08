@@ -1,0 +1,147 @@
+/*
+    遍历字符串
+    字符串长度：字符串对象名.length()
+    获得每一个字符用charAt方法：public char charAt(int index)--------根据索引来确定字符
+ */
+
+import java.util.Scanner;
+
+public class d_TraverseString {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入一个字符串:");
+        String line = sc.nextLine();
+
+        //字符串的长度
+        System.out.println(line.length());
+        System.out.println("--------------------");
+
+        //获得字符串方法一(繁琐不方便便)
+        System.out.println(line.charAt(0));
+        System.out.println(line.charAt(1));
+        System.out.println(line.charAt(2));
+        System.out.println("------------------");
+
+        //获得字符串方法二（循环）
+        for (int i=0;i<line.length();i++){
+            System.out.println(line.charAt(i));
+        }
+
+
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+/*
+    统计字符次数
+    需求：输入一个字符串，统计该字符中大写字母字符，小写字母字符，数字字符出现的次数（不考虑其它字符）
+
+
+    思路：
+           大写字母：ch>='A'&&ch<='Z'
+           小写字母：ch>='a'&&ch<='z'
+           数字   ：ch>='0'&&ch<='9'
+ */
+public class e_StatisticsString {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入一个字符串");
+        String line = sc.nextLine();
+
+        //定义三个统计变量
+        int bigCount=0;
+        int smallCount=0;
+        int numberCount=0;
+
+        for(int i=0;i<line.length();i++){
+            if (line.charAt(i)>='A'&&line.charAt(i)<='Z'){
+                bigCount++;
+            } else if (line.charAt(i)>='a'&&line.charAt(i)<='z') {
+                smallCount++;
+            }else if (line.charAt(i)>='0'&&line.charAt(i)<='9'){
+                numberCount++;
+            }
+        }
+        System.out.println("大写字母的个数："+bigCount+"个");
+        System.out.println("小写字母的个数："+smallCount+"个");
+        System.out.println("数字的个数"+numberCount+"个");
+
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+/*
+    拼接字符串
+    拼接的时候直接相加就行
+    需求：定义一个方法，把int数组中的数据按照指定的格式拼接成一个字符串返回，调用该方法，
+         并在控制台输出结果。例如，数组int arr{  1,2,3};,执行结果为：[1, 2, 3]
+ */
+public class f_SplicingString {
+    public static void main(String[] args) {
+        int[] arr={1,2,3};
+        String s = SplicingString(arr);
+        System.out.println("s:"+s);
+    }
+
+    //定义一个函数
+    public static String SplicingString(int[] arr){
+        String s="";
+
+        s+="[";
+
+        for(int i=0;i< arr.length;i++){
+            if(i==arr.length-1){
+                s+=arr[i];
+            }else {
+                s+=arr[i];
+                s+=", ";
+            }
+        }
+        s+="]";
+        return s;
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+import java.util.Scanner;
+
+/*
+    字符串的反转
+    需求：定义一个方法，实现字符串的反转，例如输入abc，输出为cba
+ */
+public class g_RollbackString {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入一个字符串");
+        String s = sc.nextLine();
+        String s1 = RollbackString(s);
+        System.out.println("s1: "+s1);
+    }
+    public static String RollbackString(String s){
+        String ss="";                                          //不能写成String ss;
+        for (int i=0;i<s.length();i++){
+            ss+=s.charAt(s.length()-1-i);
+        }
+        return ss;
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
