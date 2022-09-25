@@ -1,0 +1,114 @@
+package itheima_04_StringBuilder;
+/*
+    StringBuilder类：概述
+        1、StringBuilder是一个可变的（StringBuilder对象中的内容是可变的）字符串类
+                用途：
+                    如果进行字符串的拼接操作，每次拼接都会构成一个新的String对象，既耗时又浪费空间
+                    StringBuilder解决这种问题
+        2、StringBuilder与String的区别：
+                String:内容不可变
+                StringBuilder:内容可变的
+
+ */
+/*
+    正文：StringBuilder的构造方法
+        public StringBuilder()-------创建一个空白可变字符串对象
+        public StringBuilder(String s)------根据字符串内容，创建可变字符串对象
+ */
+
+public class a_StringBuilder {
+    public static void main(String[] args) {
+        //public StringBuilder()-------创建一个空白可变字符串对象
+        StringBuilder s1 = new StringBuilder();
+        System.out.println("s1:"+s1);
+        System.out.println("s1.length():"+s1.length());
+        System.out.println("\n"+"-----------"+"\n");
+
+
+        //public StringBuilder(String s)------根据字符串内容，创建可变字符串对象
+        StringBuilder s2=new StringBuilder("hello");
+        System.out.println("s2:"+s2);
+        System.out.println("s2.length():"+s2.length());
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package itheima_04_StringBuilder;
+/*
+    StringBuilder的添加和反转
+        public StringBuilder append(任意类型)：添加数据并返回对象本身
+        public StringBuilder reserve():返回相反的字符序列
+ */
+
+public class b_StringBuilder_AppendReserve {
+    public static void main(String[] args) {
+        StringBuilder sb=new StringBuilder();
+        StringBuilder sb3=new StringBuilder();
+
+        //public StringBuilder append(任意类型)：添加数据并返回对象本身
+        StringBuilder sb2=sb.append("hello");
+        System.out.println("sb:"+sb);
+        System.out.println("sb2:"+sb2);
+        System.out.println("sb==sb2:"+"sb==sb2");
+
+        sb3.append("hello");
+        sb3.append("world");
+        sb3.append("100");
+        System.out.println("sb3:"+sb3);
+
+        //链式编程(有对象就能调用函数，sb.append("hello")仍然是个对象，能够继续调用函数)
+        sb.append("hello").append("world").append("100");
+        System.out.println("sb3:"+sb3);
+
+        //public StringBuilder reserve():返回相反的字符序列
+        sb.reverse();
+        System.out.println("反转:"+"\n"+"  sb:"+sb);
+    }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+package itheima_04_StringBuilder;
+/*
+    StringBuilder与String的转换
+        目的：String不能直接使用append功能，需要转化为StringBuilder
+
+    1、StringBuilder → → → String
+        public String toString()------通过toString
+    2、String → → → StringBuilder
+        public StringBuilder(String s)------通过构造方法
+ */
+
+public class c_StringBuilder_String_change {
+    public static void main(String[] args) {
+
+        //StringBuilder → → → String
+        StringBuilder sb=new StringBuilder();
+        sb.append("hello");
+//        String s=sb;--------------------//这种方法是错误的
+        //通过toString
+        String s=sb.toString();
+        System.out.println("转换为String："+"s:"+s);
+        System.out.println("\n"+"---------"+"\n");
+
+
+        //String → → → StringBuilder
+        String String="world";
+//        StringBuilder s2=String;---------//这种方法是错误的
+        //通过构造方法
+        StringBuilder s2=new StringBuilder(String);
+        System.out.println("转换为StringBuilder:"+" s2:"+s2);
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
