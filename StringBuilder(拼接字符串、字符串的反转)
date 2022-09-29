@@ -1,0 +1,68 @@
+package itheima_04_StringBuilder;
+/*
+    拼接字符串：
+        需求：定义一个方法，把int数组中的数据按照指定的格式（String）拼接成一个字符串返回，调用该方法，
+         并在控制台输出结果。例如，数组int arr{  1,2,3};,执行结果为：[1, 2, 3]
+         用StringBuilder进行拼接(用时短、便捷)
+ */
+
+public class d_StringBuilder_SplicingString {
+    public static void main(String[] args) {
+        int[] arr={1,2,3};
+        System.out.println(splicing(arr));
+
+    }
+    public static String splicing(int[] arr){
+        StringBuilder sb=new StringBuilder();
+        sb.append("[");
+        for(int i=0;i<arr.length;i++){
+            if(i==arr.length-1){
+                sb.append(arr[i]);
+            }else{
+                sb.append(arr[i]+", ");
+            }
+        }
+        sb.append("]");
+        String s=sb.toString();
+        return s;
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+package itheima_04_StringBuilder;
+
+import java.util.Scanner;
+
+/*
+    字符串的反转
+    需求：定义一个方法，实现字符串的反转，例如输入abc，输出为cba
+    方法返回类型String、用StringBuilder实现反转
+
+        注意：StringBuilder不能用charAt()
+ */
+public class e_StringBuilder_RollbackString {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入一个字符串");
+        String s=sc.nextLine();
+        System.out.println(Rollback(s));
+        System.out.println(Rollback2(s));
+
+
+    }
+    public static String Rollback(String s){
+        StringBuilder sb=new StringBuilder(s);
+        sb.reverse();
+        String ss=sb.toString();
+        return ss;
+    }
+    public static String Rollback2(String s){
+        return new StringBuilder(s).reverse().toString();
+    }
+    //new StringBuilder(s)是一个匿名对象所以能后调用方法
+    //new StringBuilder(s).reverse()匿名对象
+
+
+}
