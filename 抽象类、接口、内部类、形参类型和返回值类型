@@ -1,0 +1,395 @@
+抽象类：
+package com.cx;
+
+public class Cat extends Animal{
+
+
+    @Override
+    public void eat() {
+        System.out.println("猫吃东西");
+    }
+}
+
+--------
+
+package com.cx;
+
+public abstract class Animal {
+    private int name;
+    private final String city="上海";
+
+    //成员方法
+    public void show(){
+        name=1;
+//        city="北京"；
+    }
+
+
+
+    //抽象方法
+    public abstract void eat();
+    public void sleep(){
+        System.out.println("睡觉");
+    }
+}
+
+
+
+--------
+
+
+package com.cx;
+
+public class AnimalDemo {
+    public static void main(String[] args) {
+        Animal a=new Cat();
+        a.eat();
+        a.sleep();
+
+    }
+}
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+接口：
+package com.jk;
+
+public interface Jumpping {
+    void eat();
+}
+
+
+------
+
+
+package com.jk;
+
+public class Animal {
+    public void show(){
+        System.out.println("动物");
+    }
+}
+
+
+
+------
+
+
+package com.jk;
+
+public class Cat extends Animal implements Jumpping {
+
+    @Override
+    public void eat() {
+        System.out.println("猫吃鱼");
+    }
+    public void show() {
+        System.out.println("重写动物");
+    }
+    }
+
+
+
+------
+
+
+package com.jk;
+
+public class JumppingDemo {
+    public static void main(String[] args) {
+        Jumpping J=new Cat();
+        J.eat();
+        Animal a=new Cat();
+        a.show();
+    }
+
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+内部类
+
+
+局部内部类
+package com.nbl;
+
+
+//局部内部类
+
+public class jubu {
+
+    private int num =10;
+
+    public void show(){
+
+        class Inner{
+            public void show2(){
+                System.out.println(num);
+            }
+        }
+        Inner i = new Inner();
+        i.show2();
+
+    }
+
+}
+
+
+
+------
+
+
+package com.nbl;
+
+public class jubu_main {
+    public static void main(String[] args) {
+        jubu jubu = new jubu();
+        jubu.show();
+    }
+}
+
+
+
+匿名内部类
+
+
+package com.nbl;
+
+public interface niming_1 {
+    void eat();
+}
+
+
+
+------
+
+
+package com.nbl;
+
+public class niming {
+/*
+    public void method(){
+        new niming_1() {
+            @Override
+            public void eat() {
+                System.out.println("匿名");
+            }
+        }.eat();
+*/
+
+        public void method(){
+        niming_1 nn = new niming_1() {
+                @Override
+                public void eat() {
+                    System.out.println("匿名");
+                }
+            };
+        nn.eat();
+
+    }
+
+}
+
+
+
+------
+
+
+package com.nbl;
+
+public class niming_main {
+    public static void main(String[] args) {
+        niming nm = new niming();
+        nm.method();
+    }
+}
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+形参实参
+
+
+类为形参和返回类型
+package com.xc_sc;
+
+public class Cat {
+    public void eat(){
+        System.out.println("猫吃鱼");
+    }
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class CatOprerator {
+    public void useCat(Cat c){
+        c.eat();
+    }
+    public Cat getcat(){
+        Cat c = new Cat();
+        return c;
+    }
+}
+
+
+------
+
+
+package com.xc_sc;
+
+public class CatDemo {
+    public static void main(String[] args) {
+        CatOprerator co=new CatOprerator();
+        Cat c=new Cat();
+        co.useCat(c);
+
+        Cat cat = co.getcat();//new Cat();
+    }
+}
+
+
+
+------
+
+
+抽象类为形参和返回类型
+
+
+package com.xc_sc;
+
+public abstract class Dog {
+    public abstract void eat();
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class Dog2 extends Dog{
+    @Override
+    public void eat() {
+        System.out.println("狗🐕");
+    }
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class DogOprerator {
+    public void usedog(Dog d){
+        d.eat();
+    }
+
+    public Dog getdog(){
+        Dog d=new Dog2();
+        return d;
+    }
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class DogDemo {
+    public static void main(String[] args) {
+        DogOprerator dogOprerator = new DogOprerator();
+        Dog dd=new Dog2();
+        dogOprerator.usedog(dd);
+
+
+        Dog getdog = dogOprerator.getdog();
+        getdog.eat();
+    }
+}
+
+
+
+------
+
+
+接口为形参和返回类型
+
+
+package com.xc_sc;
+
+public interface Animal {
+    void eat();
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class Animal_dog implements Animal{
+    @Override
+    public void eat() {
+        System.out.println("狗狗🐕");
+    }
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class Animal_dogoprerator {
+    public void useanimal(Animal a){
+        a.eat();
+    }
+
+    public Animal getAnimal(){
+        Animal aaa=new Animal_dog();
+        return aaa;
+    }
+}
+
+
+
+------
+
+
+package com.xc_sc;
+
+public class AnimalDemo {
+    public static void main(String[] args) {
+        Animal_dogoprerator a = new Animal_dogoprerator();
+        Animal aa=new Animal_dog();
+        a.useanimal(aa);
+
+
+        Animal animal = a.getAnimal();
+        animal.eat();
+    }
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
